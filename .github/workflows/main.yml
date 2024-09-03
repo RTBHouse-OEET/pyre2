@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4.1.7
 
       # note wheels should be in subdirectory <upload_name>
       - name: Check number of downloaded artifacts
