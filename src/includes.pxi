@@ -4,17 +4,11 @@ from libcpp.string cimport string as cpp_string
 from cython.operator cimport postincrement, dereference
 from cpython.buffer cimport Py_buffer, PyBUF_SIMPLE, PyObject_CheckBuffer, \
         PyObject_GetBuffer, PyBuffer_Release
-from cpython.version cimport PY_MAJOR_VERSION
 
 
 cdef extern from *:
     cdef void emit_if_narrow_unicode "#if !defined(Py_UNICODE_WIDE) && PY_VERSION_HEX < 0x03030000 //" ()
     cdef void emit_endif "#endif //" ()
-
-
-cdef extern from "Python.h":
-    int PyObject_CheckReadBuffer(object)
-    int PyObject_AsReadBuffer(object, const void **, Py_ssize_t *)
 
 
 cdef extern from "re2/stringpiece.h" namespace "re2":
