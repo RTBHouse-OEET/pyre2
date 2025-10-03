@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "local>rtbhouse-oeet/.github//.github/renovate.json5",
+  ]
+}
