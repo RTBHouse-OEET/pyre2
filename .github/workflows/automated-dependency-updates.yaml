@@ -1,0 +1,28 @@
+name: Automated dependency updates
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+jobs:
+  renovate:
+    name: Renovate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate a GitHub Renovate org config preset App token
+        id: gh-renovate-org-config-preset-app
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.GH_RENOVATE_APP_ID }}
+          private-key: ${{ secrets.GH_RENOVATE_APP_PRIVATE_KEY }}
+          repositories: |
+            .github
+      - uses: rtbhouse-security/renovate-scanner/.github/actions/run-renovate@v0.1.0
+        with:
+          gh-renovate-config-preset-app-id: ${{ vars.GH_RENOVATE_CONFIG_PRESET_APP_ID }}
+          gh-renovate-config-preset-app-private-key: ${{ secrets.GH_RENOVATE_CONFIG_PRESET_APP_PRIVATE_KEY }}
+          gh-renovate-app-id: ${{ vars.GH_RENOVATE_APP_ID }}
+          gh-renovate-app-private-key: ${{ secrets.GH_RENOVATE_APP_PRIVATE_KEY }}
+        env:
+          RENOVATE_ORG_CONFIG_PRESET_TOKEN: ${{ steps.gh-renovate-org-config-preset-app.outputs.token }}
