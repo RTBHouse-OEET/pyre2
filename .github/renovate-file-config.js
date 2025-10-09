@@ -3,7 +3,7 @@ module.exports = {
     "hostRules": [
         {
             hostType: 'github',
-            matchHost: 'https://api.github.com/repos/rtbhouse-security/renovate-scanner',
+            matchHost: 'https://api.github.com/repos/rtbhouse-devops-efficiency/renovate-scanner',
             token: process.env.RENOVATE_CONFIG_PRESET_TOKEN,
         },
         {
