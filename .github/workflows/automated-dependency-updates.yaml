@@ -18,7 +18,7 @@ jobs:
           private-key: ${{ secrets.GH_RENOVATE_APP_PRIVATE_KEY }}
           repositories: |
             .github
-      - uses: rtbhouse-devops-efficiency/renovate-scanner/.github/actions/run-renovate@v0.1.0
+      - uses: rtbhouse-platform-engineering/renovate-scanner/.github/actions/run-renovate@261480b2d6b5bb71fc7276c976a8e202f124de76 # v0.1.1
         with:
           gh-renovate-config-preset-app-id: ${{ vars.GH_RENOVATE_CONFIG_PRESET_APP_ID }}
           gh-renovate-config-preset-app-private-key: ${{ secrets.GH_RENOVATE_CONFIG_PRESET_APP_PRIVATE_KEY }}
