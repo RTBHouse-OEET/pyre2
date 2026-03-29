@@ -1,3 +1,23 @@
+v1.0.1 (2025-04-25)
+-------------------
+
+- Drop support for Python 2 .
+- Add support for Python 3.13 .
+
+  Done by removing old C API code which was dropped in 3.13 . The change is
+  related to dropping Python 2 support.
+
+
+v0.3.7 (2024-07-23)
+-------------------
+
+- Replace "setup.cfg" with "pyproject.toml".
+
+  Both files had inconsistent requirements which made tools (e.g. `poetry`)
+  work inconsistently. Some tools by default used "setup.cfg" and some used
+  "pyproject.toml".
+
+
 v0.3.3 (2021-01-26)
 -------------------
 
